@@ -4,6 +4,8 @@ package com.alexpadilla.scrollingtext;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import com.loopj.android.http.*;
+
 
 public class MainActivity extends AppCompatActivity {
 
