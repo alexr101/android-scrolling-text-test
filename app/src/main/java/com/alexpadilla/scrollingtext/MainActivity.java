@@ -8,10 +8,13 @@ import android.widget.TextView;
 import com.alexpadilla.scrollingtext.HttpUtils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         rp.add("username", "aaa"); rp.add("password", "aaa@123");
 
         HttpUtils.get("btc-usd", rp, new JsonHttpResponseHandler() {
-            
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // If the response is JSONObject instead of expected JSONArray
