@@ -40,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // If the response is JSONObject instead of expected JSONArray
-//                Log.d("asd", "---------------- this is response : " + response);
+                Log.d("asd", "---------------- this is response : " + response);
                 try {
                     JSONObject serverResp = new JSONObject(response.toString());
-                    CryptoSymbol cryptoModel = CryptoSymbol.fromJson(response);
+                    CryptoSymbol cryptoModel = CryptoSymbol.fromJson(response.getJSONObject("ticker"));
 
                     Log.d("MainActivity", String.valueOf(cryptoModel) );
-//                    marque1.append(cryptoModel.getBase());
-//                    marque1.append(cryptoModel.getTarget());
-//                    marque1.append(cryptoModel.getTarget());
+                    marque1.append(cryptoModel.getBase());
+                    marque1.append(cryptoModel.getTarget());
+                    marque1.append(cryptoModel.getTarget());
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();

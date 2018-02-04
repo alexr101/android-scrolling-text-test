@@ -14,7 +14,7 @@
         android:padding="16dp"
         android:scrollHorizontally="true"
         android:singleLine="true"
-        android:text="Create a Marquee (Scrolling Text) in Android Using TextView. Android Marquee (Scrolling Text) Tutorial with Example"
+        android:text=""
         android:textSize="24sp" />
 
     <TextView
