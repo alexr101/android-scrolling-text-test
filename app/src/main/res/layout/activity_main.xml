@@ -4,18 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/marque_scrolling_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:padding="16dp"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:text=""
-        android:textSize="24sp" />
+    <!--<TextView-->
+        <!--android:id="@+id/marque_scrolling_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="16dp"-->
+        <!--android:ellipsize="marquee"-->
+        <!--android:marqueeRepeatLimit="marquee_forever"-->
+        <!--android:padding="16dp"-->
+        <!--android:scrollHorizontally="true"-->
+        <!--android:singleLine="true"-->
+        <!--android:text=""-->
+        <!--android:textSize="24sp" />-->
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         android:id="@+id/sliding_text_marquee"
         android:singleLine="true"
         android:ellipsize="marquee"
-        android:text="Scrolling Text (Marquee) in Android Application"
+        android:text=""
         android:textSize="24sp"
         android:textStyle="bold" />
 

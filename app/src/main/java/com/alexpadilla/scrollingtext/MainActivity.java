@@ -26,11 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView marque = (TextView) this.findViewById(R.id.marque_scrolling_text);
-        marque.setSelected(true);
 
-        final TextView marque1 = (TextView) this.findViewById(R.id.sliding_text_marquee);
-        marque1.setSelected(true);
+        final TextView marque = (TextView) this.findViewById(R.id.sliding_text_marquee);
+        marque.setText("");
+        marque.setSelected(true);
 
         RequestParams rp = new RequestParams();
         rp.add("username", "aaa"); rp.add("password", "aaa@123");
@@ -45,10 +44,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject serverResp = new JSONObject(response.toString());
                     CryptoSymbol cryptoModel = CryptoSymbol.fromJson(response.getJSONObject("ticker"));
 
-                    Log.d("MainActivity", String.valueOf(cryptoModel) );
-                    marque1.append(cryptoModel.getBase());
-                    marque1.append(cryptoModel.getTarget());
-                    marque1.append(cryptoModel.getTarget());
+                    Log.d("MainActivity", String.valueOf(cryptoModel.getBase()) );
+                    marque.setText(cryptoModel.getBase());
+                    marque.setText(marque.getText() + " " + cryptoModel.getTarget());
+                    marque.setText(marque.getText() + " " + cryptoModel.getPrice());
+                    marque.setText(marque.getText() + " " + cryptoModel.getBase());
+                    marque.setText(marque.getText() + " " + cryptoModel.getTarget());
+                    marque.setText(marque.getText() + " " + cryptoModel.getPrice());
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
