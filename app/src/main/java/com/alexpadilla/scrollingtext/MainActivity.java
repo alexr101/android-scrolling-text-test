@@ -4,17 +4,20 @@ package com.alexpadilla.scrollingtext;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+import android.util.Log;
+
 
 import com.alexpadilla.scrollingtext.HttpUtils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
+
+import com.alexpadilla.scrollingtext.CryptoSymbol;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final TextView marque = (TextView) this.findViewById(R.id.marque_scrolling_text);
+        marque.setSelected(true);
+
+        final TextView marque1 = (TextView) this.findViewById(R.id.sliding_text_marquee);
+        marque1.setSelected(true);
 
         RequestParams rp = new RequestParams();
         rp.add("username", "aaa"); rp.add("password", "aaa@123");
@@ -32,9 +40,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // If the response is JSONObject instead of expected JSONArray
-                Log.d("asd", "---------------- this is response : " + response);
+//                Log.d("asd", "---------------- this is response : " + response);
                 try {
                     JSONObject serverResp = new JSONObject(response.toString());
+                    CryptoSymbol cryptoModel = CryptoSymbol.fromJson(response);
+
+                    Log.d("MainActivity", String.valueOf(cryptoModel) );
+//                    marque1.append(cryptoModel.getBase());
+//                    marque1.append(cryptoModel.getTarget());
+//                    marque1.append(cryptoModel.getTarget());
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -46,13 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 // Pull out the first event on the public timeline
 
             }
-        } )
+        } );
 
 
-        TextView marque = (TextView) this.findViewById(R.id.marque_scrolling_text);
-        marque.setSelected(true);
 
-        TextView marque1 = (TextView) this.findViewById(R.id.sliding_text_marquee);
-        marque1.setSelected(true);
     }
 }
